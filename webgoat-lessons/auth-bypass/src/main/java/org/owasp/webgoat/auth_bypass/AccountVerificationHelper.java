@@ -28,6 +28,8 @@ import java.util.Map;
 /**
  * Created by appsec on 7/18/17.
  */
+ // @accepts arbitrary file writes to WebApp:FileSystem with filename restrictions
+// @mitigates WebApp:FileSystem against unauthorised access with strict file permissions
 public class AccountVerificationHelper {
 
     //simulating database storage of verification credentials
@@ -47,7 +49,10 @@ public class AccountVerificationHelper {
     // end 'data store set up'
 
     // this is to aid feedback in the attack process and is not intended to be part of the 'vulnerable' code
-    public boolean didUserLikelylCheat(HashMap<String, String> submittedAnswers) {
+/*
+@accepts arbitrary file writes to WebApp:FileSystem with filename restrictions
+@mitigates WebApp:FileSystem against unauthorised access with strict file permissions
+*/    public boolean didUserLikelylCheat(HashMap<String, String> submittedAnswers) {
         boolean likely = false;
 
         if (submittedAnswers.size() == secQuestionStore.get(verifyUserId).size()) {
